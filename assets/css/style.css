@@ -4,6 +4,7 @@
   font-family: 'Changa';
   color: #ccc;
   font-weight: 500;
+  box-sizing: border-box;
 }
 
 @font-face {
@@ -14,6 +15,7 @@
 
 html {
   height: 62.5%;
+  height: 100vh;
 }
 
 body {
@@ -56,8 +58,8 @@ footer {
   align-items: center;
   justify-content: center;
   background-color: #1A121F;
-  width: 15rem;
-  height: 5rem;
+  width: 17rem;
+  height: 7rem;
   margin-top: 1rem;
   border-radius: 1rem;
 }
@@ -81,17 +83,19 @@ footer {
 /*botao onibus ou metro*/
 .c-usar__botao__um {
   margin-right: 3rem;
-  width: 7rem;
-  height: 3rem;
+  width: 9rem;
+  height: 5rem;
   background-color: #5E0000;
   border-radius: 1rem;
+  font-size: 1rem;
 }
 /*botao onibus + metro*/
 .c-usar__botao__dois {
-  width: 7rem;
-  height: 3rem;
+  width: 9rem;
+  height: 5rem;
   background-color: #5E0000;
   border-radius: 1rem;
+  font-size: 1rem;
 }
 /* botao voltar */
 .c-usar__botao__voltar {
@@ -139,17 +143,21 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 1rem;
+  margin-left: 4rem;
   width: 7rem;
   height: 3rem;
   background-color: #17341A;
   border-radius: 1rem;
+  font-size: 1.5rem;
+  padding-left: 0.8rem;
+  outline: none;
 }
 
 .c-carregar__botao__ok {
   width: 3rem;
   height: 2rem;
   background-color: #5E0000;
+  margin-left: 1rem;
   border-radius: 1rem;
 }
 
