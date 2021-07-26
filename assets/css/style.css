@@ -109,7 +109,7 @@ footer {
   border-radius: 1rem;
 }
 .c-usar__botao__tres:disabled {
-  background-color: #cdcdcd;
+  background-color: #bbb;
   color: #fff;
 }
 
@@ -146,7 +146,7 @@ footer {
   margin-left: 4rem;
   width: 7rem;
   height: 3rem;
-  background-color: #ccc;
+  background-color: #bbb;
   color: #000;
   border-radius: 1rem;
   font-size: 1.5rem;
@@ -174,4 +174,3 @@ footer {
   background-color: #790707;
   border-radius: 1rem;
 }
-
