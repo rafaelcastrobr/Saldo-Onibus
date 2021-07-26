@@ -1,0 +1,22 @@
+.c-saldo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.c-saldo__letra {
+  font-size: 3rem;
+}
+
+.c-saldo__valor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1A121F;
+  width: 17rem;
+  height: 7rem;
+  margin-top: 1rem;
+  border-radius: 1rem;
+}

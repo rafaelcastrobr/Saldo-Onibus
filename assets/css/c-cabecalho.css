@@ -1,0 +1,9 @@
+.c-cabecalho {
+  display: flex;
+  justify-content: center;
+  margin-top: 3.5rem;
+}
+
+.c-cabecalho__letra {
+  font-size: 1.5rem;
+}

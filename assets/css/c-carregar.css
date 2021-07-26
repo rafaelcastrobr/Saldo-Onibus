@@ -1,0 +1,55 @@
+.c-carregar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.c-carregar__letra {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.c-carregar__botao__r {
+  width: 7rem;
+  height: 3rem;
+  background-color: #17341A;
+  border-radius: 1rem;
+}
+
+.c-carregar__botao__r:active {
+  background-color: #1b4b1f;
+}
+
+.c-carregar__valor {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.c-carregar__botao__valor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 4rem;
+  width: 7rem;
+  height: 3rem;
+  background-color: #bbb;
+  color: #000;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  padding-left: 0.8rem;
+  outline: none;
+}
+
+.c-carregar__botao__ok {
+  width: 3rem;
+  height: 2rem;
+  background-color: #5E0000;
+  margin-left: 1rem;
+  border-radius: 1rem;
+}
+.c-carregar__botao__ok:active {
+  background-color: #790707;
+}

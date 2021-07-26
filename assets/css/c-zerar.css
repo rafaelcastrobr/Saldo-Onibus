@@ -1,0 +1,16 @@
+
+.c-zerar {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+.c-zerar__botao {
+  width: 7rem;
+  height: 3rem;
+  background-color: #790707;
+  border-radius: 1rem;
+}
+.c-zerar__botao:active {
+  background-color: #5E0000;
+}
