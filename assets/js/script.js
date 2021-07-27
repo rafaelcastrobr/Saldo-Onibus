@@ -107,7 +107,7 @@ okClic.addEventListener('click', () =>{
     const addRecar = document.querySelector('.c-carregar__botao__valor');
     const recarClic = document.querySelector('#recarregar');
     const audio = document.querySelector('audio');
-    //audio.play();
+    audio.play();
     let valorAdd = Number(addRecar.value);
     total += valorAdd;
     let valor = total;
