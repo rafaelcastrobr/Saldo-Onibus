@@ -1,14 +1,28 @@
 const saldoTotal = document.querySelector('.c-saldo__result');
 let total = 0.00;
 
-saldoTotal.innerHTML = total;
+//saldoTotal.innerHTML = total;
 let retVal;
 let valorAdd;
+let saveB;
 
 
 /*
 LocalStorage
 */
+
+
+function gravar(num) {
+  localStorage.setItem('valor', num);
+
+}
+
+function gr() {
+  saveB = localStorage.valor;
+  saldoTotal.innerHTML = saveB;
+}
+gr()
+
 
 
 
@@ -29,6 +43,7 @@ oOM.addEventListener('click', () => {
     saldoTotal.innerHTML = totalText;
     retVal = Number(totalText) + valor;
     document.querySelector('.c-usar__botao__tres').removeAttribute('disabled');
+    gravar(totalText);
   } else {
     alert('Você está com saldo abaixo de 4.40 \n Faça uma recarga');
   }
@@ -46,6 +61,7 @@ oOEM.addEventListener('click', () => {
     saldoTotal.innerHTML = totalText;
     retVal = Number(totalText) + valor;
     document.querySelector('.c-usar__botao__tres').removeAttribute('disabled');
+    gravar(totalText);
   } else {
     alert('Você está com saldo abaixo de 7.65 \n Faça uma recarga');
   }
@@ -59,6 +75,7 @@ volt.addEventListener('click', () => {
   total = retVal;
   const voltar = document.querySelector('.c-usar__botao__tres')
   voltar.setAttribute('disabled', '');
+  gravar(retVal);
 });
 
 /*
@@ -90,7 +107,7 @@ okClic.addEventListener('click', () =>{
     const addRecar = document.querySelector('.c-carregar__botao__valor');
     const recarClic = document.querySelector('#recarregar');
     const audio = document.querySelector('audio');
-    audio.play();
+    //audio.play();
     let valorAdd = Number(addRecar.value);
     total += valorAdd;
     let valor = total;
@@ -101,7 +118,7 @@ okClic.addEventListener('click', () =>{
     retVal = valor - valorAdd;
     document.querySelector('.c-usar__botao__tres').removeAttribute('disabled');
     addRecar.value = ``;
-    console.log(total);
+    gravar(tstotal);
   }
 });
 
@@ -114,6 +131,7 @@ zerar.addEventListener('click', () => {
   if(confirm('Quer mesmo apagar seu saldo?')) {
     total = Number(0.00.toFixed(2));
     saldoTotal.innerHTML = total;
+    gravar(total);
   } 
 })
 
