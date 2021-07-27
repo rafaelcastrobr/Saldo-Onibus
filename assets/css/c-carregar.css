@@ -23,6 +23,11 @@
 .c-carregar__botao__r:active {
   background-color: #1b4b1f;
 }
+.c-carregar__valor--none {
+  display: none;
+  align-items: center;
+  margin-top: 1rem;
+}
 
 .c-carregar__valor {
   display: flex;
