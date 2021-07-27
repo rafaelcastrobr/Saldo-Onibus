@@ -1,9 +1,7 @@
 const saldoTotal = document.querySelector('.c-saldo__result');
-let total = 0.00;
+let total;
 
-//saldoTotal.innerHTML = total;
 let retVal;
-let valorAdd;
 let saveB;
 
 
@@ -11,20 +9,22 @@ let saveB;
 LocalStorage
 */
 
-
 function gravar(num) {
   localStorage.setItem('valor', num);
-
 }
 
 function gr() {
+  if(localStorage.valor) {
   saveB = localStorage.valor;
-  saldoTotal.innerHTML = saveB;
+  saldoTotal.innerHTML = Number(saveB);
+  total = Number(saveB);
+  } else {
+    total = 0.00;
+    saldoTotal.innerHTML = total;
+  }
+  
 }
 gr()
-
-
-
 
 
 /*
