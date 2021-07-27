@@ -1,8 +1,17 @@
 const saldoTotal = document.querySelector('.c-saldo__result');
-let total = 0.00
+let total = 0.00;
+
+saldoTotal.innerHTML = total;
 let retVal;
 let valorAdd;
-saldoTotal.innerHTML = total.toFixed(2);
+
+
+/*
+LocalStorage
+*/
+
+
+
 
 /*
 USOU BILHETE
@@ -64,13 +73,15 @@ recar.addEventListener('click', () => {
   if (document.querySelector('.c-carregar__valor--none')) {
     recarClic.classList.remove('c-carregar__valor--none');
     recarClic.classList.add('c-carregar__valor');
+    const addRecar = document.querySelector('.c-carregar__botao__valor');
+    addRecar.focus();
   } else {
     recarClic.classList.remove('c-carregar__valor');
     recarClic.classList.add('c-carregar__valor--none');
   }
 });
 
-// Add recarga
+// Add recarga OK
 
 const okClic = document.querySelector('.c-carregar__botao__ok');
 okClic.addEventListener('click', () =>{
@@ -78,16 +89,19 @@ okClic.addEventListener('click', () =>{
   if(total !== Number) {
     const addRecar = document.querySelector('.c-carregar__botao__valor');
     const recarClic = document.querySelector('#recarregar');
+    const audio = document.querySelector('audio');
+    audio.play();
     let valorAdd = Number(addRecar.value);
     total += valorAdd;
     let valor = total;
-    saldoTotal.innerHTML = total.toFixed(2);
+    let tstotal = total.toFixed(2);
+    saldoTotal.innerHTML = tstotal;
     recarClic.classList.remove('c-carregar__valor');
     recarClic.classList.add('c-carregar__valor--none');
     retVal = valor - valorAdd;
     document.querySelector('.c-usar__botao__tres').removeAttribute('disabled');
     addRecar.value = ``;
-    console.log(retVal);
+    console.log(total);
   }
 });
 
@@ -98,6 +112,12 @@ ZERAR
 const zerar = document.querySelector('.c-zerar__botao');
 zerar.addEventListener('click', () => {
   if(confirm('Quer mesmo apagar seu saldo?')) {
-    saldoTotal.innerHTML = total - total;
+    total = Number(0.00.toFixed(2));
+    saldoTotal.innerHTML = total;
   } 
 })
+
+
+
+
+
