@@ -7,7 +7,7 @@
   "theme_color": " #362B3D",
   "icons": [
     {
-      "src": "assets/ico/android-chrome-512x512",
+      "src": "assets/ico/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "png"
     }
