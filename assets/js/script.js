@@ -16,7 +16,7 @@ function gravar(num) {
 function gr() {
   if(localStorage.valor) {
   saveB = localStorage.valor;
-  saldoTotal.innerHTML = Number(saveB);
+  saldoTotal.innerHTML = Number(saveB).toFixed(2);
   total = Number(saveB);
   } else {
     total = 0.00;
@@ -90,7 +90,6 @@ recar.addEventListener('click', () => {
   if (document.querySelector('.c-carregar__valor--none')) {
     recarClic.classList.remove('c-carregar__valor--none');
     recarClic.classList.add('c-carregar__valor');
-    const addRecar = document.querySelector('.c-carregar__botao__valor');
     addRecar.focus();
   } else {
     recarClic.classList.remove('c-carregar__valor');
@@ -99,12 +98,22 @@ recar.addEventListener('click', () => {
 });
 
 // Add recarga OK
-
+const addRecar = document.querySelector('.c-carregar__botao__valor');
 const okClic = document.querySelector('.c-carregar__botao__ok');
 okClic.addEventListener('click', () =>{
   
+  if(addRecar.value.length == 0){
+    alert('Digite um valor');
+    return;
+  }
+
+  if(addRecar.value <= 0) {
+    alert('Digite um novo valor')
+    addRecar.value = ``;
+    addRecar.focus();
+    return;
+  }
   if(total !== Number) {
-    const addRecar = document.querySelector('.c-carregar__botao__valor');
     const recarClic = document.querySelector('#recarregar');
     const audio = document.querySelector('audio');
     audio.play();
@@ -129,7 +138,7 @@ ZERAR
 const zerar = document.querySelector('.c-zerar__botao');
 zerar.addEventListener('click', () => {
   if(confirm('Quer mesmo apagar seu saldo?')) {
-    total = Number(0.00.toFixed(2));
+    total = Number(0.00);
     saldoTotal.innerHTML = total;
     gravar(total);
   } 
