@@ -2,7 +2,7 @@
   "name": "Saldo Ônibus",
   "short_name": "Saldo Ônibus",
   "lang": "pt-BR",
-  "start_url": "saldobusao.netlify.app/",
+  "start_url": "https://saldobusao.netlify.app",
   "display": "standalone",
   "theme_color": " #362B3D",
   "icons": [
