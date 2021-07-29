@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="assets/css/c-saldo.css">
   <link rel="stylesheet" href="assets/css/c-carregar.css">
   <link rel="stylesheet" href="assets/css/c-usar.css">
+  <link rel="stylesheet" href="assets/css/c-historico.css">
   <link rel="stylesheet" href="assets/css/c-zerar.css">
 
   <title>Saldo do Onibus</title>
@@ -34,12 +35,14 @@
   <section class="c-saldo">
     <h1 class="c-saldo__letra">SALDO</h1>
     <div class="c-saldo__valor"><p class="c-saldo__result"></p></div>
+    <div class="c-historico__info"></div>
+
   </section>
   <section class="c-usar">
     <h2 class="c-usar__letra">USOU BILHETE</h2>
     <div class="c-usar__botao">
       <div>
-        <input type="button" class="c-usar__botao__um" value="ônibus ou metrô">
+        <input type="button" class="c-usar__botao__um" value="ônibus OU metrô">
       </div>
       <div>
         <input type="button" class="c-usar__botao__dois" value="ônibus + metrô">
@@ -60,13 +63,18 @@
       <audio src="assets/audio/coin.mp3"></audio>
     </div>
   </section>
+  <section class="c-historico">
+    <input  type="button" class="c-historico__botao" value="HISTÓRICO">
+    <div id="historico" class="c-historico__result--none"></div>
+  </section>
   <section class="c-zerar">
-    <p>ôbibus ou metrô SP: R$4,40</p>
-    <p>ôbibus + metrô SP: R$7,65</p>
     <input type="button" class="c-zerar__botao" value="ZERAR SALDO">
   </section>
   <footer>
-    <p>Criado por Rafael Castro</p>
+    <p>ônibus ou metrô SP: R$4,40</p>
+    <p style="margin-bottom: 1rem;">ônibus + metrô SP: R$7,65</p>
+    <p><a href="https://github.com/rafaelcastrobr"><img style="height:3rem;" src="https://raw.githubusercontent.com/devicons/devicon/7a4ca8aa871d6dca81691e018d31eed89cb70a76/icons/github/github-original-wordmark.svg" alt=""></a></p>
+    <p>Criado por Rafael Castro v2.0</p>
     <p>github: rafaelcastrobr</p>
   </footer>
 
