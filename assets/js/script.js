@@ -24,14 +24,14 @@ function gravar(num) {
   }else if(num <= 7.64){
     infoSaldo = `<p><span style="color:red">1</span> passagem de ônibus!</p>`;
   }else if(num <= 8.79) {
-    infoSaldo = `<p><span style="color:red">1</span> passagem de ônibus
-    ou <span style="color:red">1</span> de Integração!</p>`;
+    infoSaldo = `<p><span style="color:red">1</span> passagem de ônibus</p>
+    <p>ou <span style="color:red">1</span> de Integração!</p>`;
   }else if(num <= 15.29) {
-    infoSaldo = `<p><span style="color:red">${divisao}</span> passagens de ônibus
-    ou <span style="color:red">1</span> de Integração!</p>`;
+    infoSaldo = `<p><span style="color:red">${divisao}</span> passagens de ônibus</p>
+    <p>ou <span style="color:red">1</span> de Integração!</p>`;
   }else if (num > 8.80){
-    infoSaldo = `<p><span style="color:red">${divisao}</span> passagens de ônibus 
-    ou <span style="color:red">${divisaoInt}</span> de Integrações!</p>`;
+    infoSaldo = `<p><span style="color:red">${divisao}</span> passagens de ônibus</p>
+    <p>ou <span style="color:red">${divisaoInt}</span> de Integrações!</p>`;
   }
 
   localStorage.setItem('info', infoSaldo);
