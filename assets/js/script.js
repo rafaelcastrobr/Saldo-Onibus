@@ -1,5 +1,7 @@
 const saldoTotal = document.querySelector('.c-saldo__result');
 let histResult = document.querySelector('.c-historico__result--none')
+const hist = document.querySelector('.c-historico__botao');
+
 
 let total;
 let retVal;
@@ -38,8 +40,11 @@ function gravar(num) {
 
   if(localStorage.info){
     info.innerHTML = infoSaldo;
+    document.querySelector('.c-historico__botao').removeAttribute('disabled')
   } else {
     info.innerHTML = `<p>Saldo insuficiente!<p>`
+    hist.setAttribute('disabled', '');
+
   }
 }
 
@@ -57,10 +62,11 @@ const info = document.querySelector('.c-historico__info');
   if(localStorage.info) {
     infoSaldo = localStorage.info;
     info.innerHTML = infoSaldo;
+    document.querySelector('.c-historico__botao').removeAttribute('disabled')
   } else{
     info.innerHTML = `<p>Saldo insuficiente!</p>`;
+    hist.setAttribute('disabled', '');
   }
-
 })();
 
 // recarga
@@ -210,7 +216,6 @@ okClic.addEventListener('click', () =>{
 HISTORICO
 */
 
-const hist = document.querySelector('.c-historico__botao');
 const idHist = document.querySelector('#historico');
 hist.addEventListener('click', () => {
 
@@ -248,6 +253,8 @@ zerar.addEventListener('click', () => {
 
     info.innerHTML = `<p>Saldo insuficiente!</p>`
     localStorage.removeItem('info');
+    hist.setAttribute('disabled', '');
+
   }
   
 

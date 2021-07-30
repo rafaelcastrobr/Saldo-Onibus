@@ -15,6 +15,11 @@
   margin-top: 1rem;
   box-shadow: 0px 3px 3px 5px rgba(0, 0, 0, 0.25);
 }
+.c-historico__botao:disabled {
+  background-color: #bbb;
+  color: #fff;
+  box-shadow: none;
+}
 
 .c-historico__botao:active {
   background-color: #281b30;
@@ -38,3 +43,5 @@
   align-items: center;
   margin-top: 1rem;
 }
+
+
