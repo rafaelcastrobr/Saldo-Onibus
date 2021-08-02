@@ -1,12 +1,15 @@
 const saldoTotal = document.querySelector('.c-saldo__result');
 let histResult = document.querySelector('.c-historico__result--none')
 const hist = document.querySelector('.c-historico__botao');
+const zerarAp = document.querySelector('#zerar_botao');
 
 
 let total;
 let retVal;
 let saveB;
 let infoSaldo;
+let valorAdd;
+let valor;
 let recarA = [];
 let diaA = [];
 
@@ -57,6 +60,7 @@ const info = document.querySelector('.c-historico__info');
   } else {
     total = 0.00;
     saldoTotal.innerHTML = total.toFixed(2);
+    zerarAp.setAttribute('disabled', '');
   }
 
   if(localStorage.info) {
@@ -110,7 +114,7 @@ const oOM = document.querySelector('.c-usar__botao__um');
 oOM.addEventListener('click', () => {
 
   if (total >= 4.39) {
-    let valor = 4.40;
+    valor = 4.40;
     total -= valor;
     let totalText = total.toFixed(2);
     saldoTotal.innerHTML = totalText;
@@ -127,7 +131,7 @@ const oOEM = document.querySelector('.c-usar__botao__dois');
 oOEM.addEventListener('click', () => {
 
   if (total >= 7.64) {
-    let valor = 7.65;
+    valor = 7.65;
     total -= valor;
     totalText = total.toFixed(2);
     saldoTotal.innerHTML = totalText;
@@ -141,13 +145,24 @@ oOEM.addEventListener('click', () => {
 });
 
 // botao voltar
-const voltar = document.querySelector('.c-usar__botao__tres')
+const voltar = document.querySelector('#voltar_saldo')
 const volt = document.querySelector('.c-usar__botao__tres');
 volt.addEventListener('click', () => {
   saldoTotal.innerHTML = retVal.toFixed(2);
   total = retVal;
   voltar.setAttribute('disabled', '');
   gravar(retVal);
+
+  if(retVal == valor - valorAdd) {
+    recarA.pop();
+    localStorage.setItem('recarga', JSON.stringify(recarA));
+    recarA = JSON.parse(localStorage.recarga);
+    histResult.innerHTML = ``;
+    histResult.innerHTML += `Recargas`
+    for(pos in recarA) {
+        histResult.innerHTML += `<p class="yes">${recarA[pos]}</p>`;
+    }
+  }
 });
 
 /*
@@ -189,9 +204,9 @@ okClic.addEventListener('click', () =>{
     const audio = document.querySelector('audio');
     audio.play();
     audio.volume = 0.1;
-    let valorAdd = Number(addRecar.value);
+    valorAdd = Number(addRecar.value);
     total += valorAdd;
-    let valor = total;
+    valor = total;
     let tstotal = total.toFixed(2)
     saldoTotal.innerHTML = tstotal;
     recarClic.classList.remove('c-carregar__valor');
@@ -208,6 +223,8 @@ okClic.addEventListener('click', () =>{
     for(pos in recarA) {
         histResult.innerHTML += `<p class="yes">${recarA[pos]}</p>`;
     }
+
+    document.querySelector('#zerar_botao').removeAttribute('disabled', '');
 
   }
 });
@@ -254,7 +271,9 @@ zerar.addEventListener('click', () => {
     info.innerHTML = `<p>Saldo insuficiente!</p>`
     localStorage.removeItem('info');
     hist.setAttribute('disabled', '');
-
+    
+    //zerar
+    zerarAp.setAttribute('disabled', '');
   }
   
 

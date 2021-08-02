@@ -19,3 +19,9 @@
 .c-zerar__botao:active {
   background-color: #5E0000;
 }
+
+.c-zerar__botao:disabled {
+  background-color: #bbb;
+  color: #fff;
+  box-shadow: none;
+}
