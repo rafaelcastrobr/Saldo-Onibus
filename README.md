@@ -3,6 +3,8 @@
 ### ✨ Sobre
 Web app que monitora saldo do bilhete único.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/eaabb9ef-2366-4326-9dc8-9684eb93ceb6/deploy-status)](https://app.netlify.com/sites/saldobusao/deploys)
+
 https://saldobusao.netlify.app/
 
 ## Ferramentas
