@@ -88,7 +88,7 @@ function gravarRA(num){
 
   let rec = `R$  ${num.toFixed(2)} no dia <span style="color:red;">${week}</span>`;
 
-  recarA.push(rec);
+  recarA.unshift(rec);
   localStorage.setItem('recarga', JSON.stringify(recarA));
 }
 
