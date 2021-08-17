@@ -154,7 +154,7 @@ volt.addEventListener('click', () => {
   gravar(retVal);
 
   if(retVal == valor - valorAdd) {
-    recarA.pop();
+    recarA.shift();
     localStorage.setItem('recarga', JSON.stringify(recarA));
     recarA = JSON.parse(localStorage.recarga);
     histResult.innerHTML = ``;
