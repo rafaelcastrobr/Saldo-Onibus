@@ -15,6 +15,7 @@ https://saldobusao.netlify.app/
 ---
 
 ## ❤️ Versão
+- v2.6 - Corrigido ordem de salvar e exibir recargas.
 - v2.5 - Melhorias na lógica do botão voltar, apagando do cache última recarga apagada.
 - v2 - Adição do hostórico e melhoria na opções.
 - v1 - Versão simples com recarga e uso.
