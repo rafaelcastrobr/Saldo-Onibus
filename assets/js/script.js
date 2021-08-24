@@ -259,7 +259,7 @@ ZERAR
 
 const zerar = document.querySelector('.c-zerar__botao');
 zerar.addEventListener('click', () => {
-  if(confirm('Deseja limpar o saldo e o histórico?')) {
+  if(confirm('Deseja Limpar os dados?')) {
     total = Number(0.00);
     saldoTotal.innerHTML = total.toFixed(2);
     gravar(total);
