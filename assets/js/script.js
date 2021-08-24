@@ -27,15 +27,15 @@ function gravar(num) {
   if (num < 4.39) {
     infoSaldo = `<p>Saldo insuficiente!<p>`;
   }else if(num <= 7.64){
-    infoSaldo = `<p><span style="color:red">1</span> passagem de ônibus!</p>`;
+    infoSaldo = `<p><span style="color:red">1</span> passagem de ônibus OU metrô!</p>`;
   }else if(num <= 8.79) {
-    infoSaldo = `<p><span style="color:red">1</span> passagem de ônibus</p>
+    infoSaldo = `<p><span style="color:red">1</span> passagem de ônibus OU metrô!</p>
     <p>ou <span style="color:red">1</span> de Integração!</p>`;
   }else if(num <= 15.29) {
-    infoSaldo = `<p><span style="color:red">${divisao}</span> passagens de ônibus</p>
+    infoSaldo = `<p><span style="color:red">${divisao}</span> passagens de ônibus OU metrô!</p>
     <p>ou <span style="color:red">1</span> de Integração!</p>`;
   }else if (num > 8.80){
-    infoSaldo = `<p><span style="color:red">${divisao}</span> passagens de ônibus</p>
+    infoSaldo = `<p><span style="color:red">${divisao}</span> passagens de ônibus OU metrô!</p>
     <p>ou <span style="color:red">${divisaoInt}</span> de Integrações!</p>`;
   }
 
@@ -114,13 +114,15 @@ const oOM = document.querySelector('.c-usar__botao__um');
 oOM.addEventListener('click', () => {
 
   if (total >= 4.39) {
-    valor = 4.40;
-    total -= valor;
-    let totalText = total.toFixed(2);
-    saldoTotal.innerHTML = totalText;
-    retVal = Number(totalText) + valor;
-    document.querySelector('.c-usar__botao__tres').removeAttribute('disabled');
-    gravar(totalText);
+    if(confirm('Utilizou o bilhete?')){
+      valor = 4.40;
+      total -= valor;
+      let totalText = total.toFixed(2);
+      saldoTotal.innerHTML = totalText;
+      retVal = Number(totalText) + valor;
+      document.querySelector('.c-usar__botao__tres').removeAttribute('disabled');
+      gravar(totalText);
+    }
   } else {
     alert('Você está com saldo abaixo de 4.40 \n Faça uma recarga');
   }
@@ -131,13 +133,15 @@ const oOEM = document.querySelector('.c-usar__botao__dois');
 oOEM.addEventListener('click', () => {
 
   if (total >= 7.64) {
-    valor = 7.65;
-    total -= valor;
-    totalText = total.toFixed(2);
-    saldoTotal.innerHTML = totalText;
-    retVal = Number(totalText) + valor;
-    document.querySelector('.c-usar__botao__tres').removeAttribute('disabled');
-    gravar(totalText);
+    if(confirm('Utilizou o bilhete?')){
+      valor = 7.65;
+      total -= valor;
+      totalText = total.toFixed(2);
+      saldoTotal.innerHTML = totalText;
+      retVal = Number(totalText) + valor;
+      document.querySelector('.c-usar__botao__tres').removeAttribute('disabled');
+      gravar(totalText);
+    }
   } else {
     alert('Você está com saldo abaixo de 7.65 \n Faça uma recarga');
   }
@@ -255,7 +259,7 @@ ZERAR
 
 const zerar = document.querySelector('.c-zerar__botao');
 zerar.addEventListener('click', () => {
-  if(confirm('Quer mesmo apagar seu saldo?')) {
+  if(confirm('Deseja limpar o saldo e o histórico?')) {
     total = Number(0.00);
     saldoTotal.innerHTML = total.toFixed(2);
     gravar(total);
