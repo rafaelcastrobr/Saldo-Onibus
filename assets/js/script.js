@@ -77,7 +77,7 @@ const info = document.querySelector('.c-historico__info');
 function gravarRA(num){
   let data = new Date();
   let dia = addZero(data.getDate());
-  let mes = addZero(data.getMonth());
+  let mes = addZero(Number(data.getMonth())+1);
   let ano = addZero(data.getFullYear());
 
   function addZero(num) {
