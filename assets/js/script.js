@@ -20,8 +20,8 @@ LocalStorage
 // valor e info
 function gravar(num) {
   localStorage.setItem('valor', num);
-  let divisao = (num / 4.40).toFixed(0);
-  let divisaoInt = (num/7.65).toFixed(0);
+  let divisao = Math.floor((num / 4.40)).toFixed(0);
+  let divisaoInt = Math.floor((num / 7.65)).toFixed(0);
 
 
   if (num < 4.39) {

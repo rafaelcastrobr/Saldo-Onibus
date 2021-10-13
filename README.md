@@ -15,6 +15,7 @@ https://saldobusao.netlify.app/
 ---
 
 ## ❤️ Versão
+- v2.7.2 - Corrigindo o valor que aparece, arredondando para baixo.
 - v2.7.1 - Ajustando problema com o mês não percebido antes.
 - v2.7 - Adicinado confirm ao usar bilhete.
 - v2.6 - Corrigido ordem de salvar e exibir recargas.
