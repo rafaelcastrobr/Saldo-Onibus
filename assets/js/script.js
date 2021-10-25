@@ -12,14 +12,17 @@ let valorAdd;
 let valor;
 let recarA = [];
 let diaA = [];
+let chaveRecarga;
 
 /*
 LocalStorage
 */
 
 // valor e info
-function gravar(num) {
+function gravar(num, chave) {
   localStorage.setItem('valor', num);
+  localStorage.setItem('retVal', retVal);
+  localStorage.setItem('chaveRecarga', chave)
   let divisao = Math.floor((num / 4.40)).toFixed(0);
   let divisaoInt = Math.floor((num / 7.65)).toFixed(0);
 
@@ -51,7 +54,9 @@ function gravar(num) {
   }
 }
 
-const info = document.querySelector('.c-historico__info');
+const info = document.querySelector('.c-historico__info'); //botao historico
+const voltar = document.querySelector('#voltar_saldo'); // botao voltar
+
 (function gr() {
   if(localStorage.valor) {
   saveB = localStorage.valor;
@@ -71,9 +76,27 @@ const info = document.querySelector('.c-historico__info');
     info.innerHTML = `<p>Saldo insuficiente!</p>`;
     hist.setAttribute('disabled', '');
   }
+
+  if(localStorage.retVal) {
+    retVal = localStorage.retVal;
+  } else {
+    voltar.setAttribute('disabled', '');
+  }
+
+  if(localStorage.chaveRecarga) {
+    if(Number(localStorage.retVal) === Number(localStorage.valor)) {
+      voltar.setAttribute('disabled', '');
+    }
+    chaveRecarga = Number(localStorage.chaveRecarga);
+  } else {
+    voltar.setAttribute('disabled', '');
+    chaveRecarga = 0;
+  }
+
+
 })();
 
-// recarga
+// GERADOR DATA GRAVADOR
 function gravarRA(num){
   let data = new Date();
   let dia = addZero(data.getDate());
@@ -121,7 +144,8 @@ oOM.addEventListener('click', () => {
       saldoTotal.innerHTML = totalText;
       retVal = Number(totalText) + valor;
       document.querySelector('.c-usar__botao__tres').removeAttribute('disabled');
-      gravar(totalText);
+      chaveRecarga = 0;
+      gravar(totalText, chaveRecarga);
     }
   } else {
     alert('Você está com saldo abaixo de 4.40 \n Faça uma recarga');
@@ -140,7 +164,9 @@ oOEM.addEventListener('click', () => {
       saldoTotal.innerHTML = totalText;
       retVal = Number(totalText) + valor;
       document.querySelector('.c-usar__botao__tres').removeAttribute('disabled');
-      gravar(totalText);
+      chaveRecarga = 0;
+      gravar(totalText, chaveRecarga);
+    
     }
   } else {
     alert('Você está com saldo abaixo de 7.65 \n Faça uma recarga');
@@ -149,24 +175,31 @@ oOEM.addEventListener('click', () => {
 });
 
 // botao voltar
-const voltar = document.querySelector('#voltar_saldo')
 const volt = document.querySelector('.c-usar__botao__tres');
 volt.addEventListener('click', () => {
-  saldoTotal.innerHTML = retVal.toFixed(2);
-  total = retVal;
-  voltar.setAttribute('disabled', '');
-  gravar(retVal);
 
-  if(retVal == valor - valorAdd) {
-    recarA.shift();
-    localStorage.setItem('recarga', JSON.stringify(recarA));
-    recarA = JSON.parse(localStorage.recarga);
-    histResult.innerHTML = ``;
-    histResult.innerHTML += `Recargas`
-    for(pos in recarA) {
-        histResult.innerHTML += `<p class="yes">${recarA[pos]}</p>`;
+  if(confirm(`Deseja voltar ao valor anterior?`)) {
+    saldoTotal.innerHTML = Number(retVal).toFixed(2);
+    total = retVal;
+    voltar.setAttribute('disabled', '');
+    
+    
+    let trueFalse = Number(localStorage.chaveRecarga);
+  
+    if(trueFalse === 1){
+      recarA.shift();
+      localStorage.setItem('recarga', JSON.stringify(recarA));
+      recarA = JSON.parse(localStorage.recarga);
+      histResult.innerHTML = ``;
+      histResult.innerHTML += `Recargas`
+      for(pos in recarA) {
+          histResult.innerHTML += `<p class="yes">${recarA[pos]}</p>`;
+      }
     }
-  }
+  
+    chaveRecarga = 0;
+    gravar(retVal, chaveRecarga);
+  };
 });
 
 /*
@@ -209,16 +242,19 @@ okClic.addEventListener('click', () =>{
     audio.play();
     audio.volume = 0.1;
     valorAdd = Number(addRecar.value);
-    total += valorAdd;
-    valor = total;
-    let tstotal = total.toFixed(2)
+    let totalNumero = Number(total);
+    totalNumero += valorAdd;
+    valor = totalNumero;
+    total = String(totalNumero);
+    let tstotal = totalNumero.toFixed(2);
     saldoTotal.innerHTML = tstotal;
     recarClic.classList.remove('c-carregar__valor');
     recarClic.classList.add('c-carregar__valor--none');
     retVal = valor - valorAdd;
     document.querySelector('.c-usar__botao__tres').removeAttribute('disabled');
     addRecar.value = ``;
-    gravar(tstotal);
+    chaveRecarga = 1;
+    gravar(tstotal, chaveRecarga);
 
     //historico
     gravarRA(valorAdd);
@@ -229,6 +265,9 @@ okClic.addEventListener('click', () =>{
     }
 
     document.querySelector('#zerar_botao').removeAttribute('disabled', '');
+
+    //chaveRecarga
+    
 
   }
 });
@@ -264,6 +303,8 @@ zerar.addEventListener('click', () => {
     saldoTotal.innerHTML = total.toFixed(2);
     gravar(total);
     localStorage.removeItem('valor');
+    localStorage.removeItem('retVal');
+    localStorage.removeItem('chaveRecarga')
     voltar.setAttribute('disabled', '');
 
 
