@@ -177,8 +177,9 @@ oOEM.addEventListener('click', () => {
 // botao voltar
 const volt = document.querySelector('.c-usar__botao__tres');
 volt.addEventListener('click', () => {
+  let valorClick = Number(retVal).toFixed(2);
 
-  if(confirm(`Deseja voltar ao valor anterior?`)) {
+  if(confirm(`Deseja voltar ao valor anterior R$ ${valorClick}?`)) {
     saldoTotal.innerHTML = Number(retVal).toFixed(2);
     total = retVal;
     voltar.setAttribute('disabled', '');
