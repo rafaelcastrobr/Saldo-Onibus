@@ -1,0 +1,48 @@
+.c-historico {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.c-historico__botao {
+  width: 7rem;
+  height: 3rem;
+  background-color: #1A121F;
+  border-radius: 1rem;
+  border: none;
+  margin-top: 1rem;
+  box-shadow: 0px 3px 3px 5px rgba(0, 0, 0, 0.25);
+
+  &:active {
+    background-color: #281b30;
+  }
+
+  &:disabled {
+    background-color: #bbb;
+    color: #fff;
+    box-shadow: none;
+  }
+}
+
+.c-historico__result {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  overflow-y: auto;
+  height: 7rem;
+}
+
+.c-historico__result--none {
+  display: none;
+}
+
+.c-historico__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+
