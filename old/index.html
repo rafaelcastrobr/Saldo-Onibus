@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 
   <meta charset="UTF-8">
@@ -13,8 +14,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="edson iOS">
   <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
-  <link rel="manifest" href="manifest.json" /> 
-
+  <link rel="manifest" href="manifest.json" />
   <link rel="shortcut icon" href="assets/ico/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/c-cabecalho.css">
@@ -23,19 +23,25 @@
   <link rel="stylesheet" href="assets/css/c-usar.css">
   <link rel="stylesheet" href="assets/css/c-historico.css">
   <link rel="stylesheet" href="assets/css/c-zerar.css">
+  <link rel="stylesheet" href="../sweetAlert/sweetalert2.min.css">
+
+
 
   <title>Saldo do Onibus</title>
 </head>
+
 <body>
   <script src="assets/js/pwa.js"></script>
 
-  
+
   <header class="c-cabecalho">
     <p class="c-cabecalho__letra">O SALDO DO BILHETE NA SUA MÃO</p>
   </header>
   <section class="c-saldo">
     <h1 class="c-saldo__letra">SALDO</h1>
-    <div class="c-saldo__valor"><p class="c-saldo__result"></p></div>
+    <div class="c-saldo__valor">
+      <p class="c-saldo__result"></p>
+    </div>
     <div class="c-historico__info"></div>
 
   </section>
@@ -60,12 +66,12 @@
     </div>
     <div id="recarregar" class="c-carregar__valor--none">
       <input type="number" class="c-carregar__botao__valor">
-      <input type="button"  value="OK" class="c-carregar__botao__ok">
+      <input type="button" value="OK" class="c-carregar__botao__ok">
       <audio src="assets/audio/coin.mp3"></audio>
     </div>
   </section>
   <section class="c-historico">
-    <input  disabled type="button" class="c-historico__botao" value="HISTÓRICO">
+    <input disabled type="button" class="c-historico__botao" value="HISTÓRICO">
     <div id="historico" class="c-historico__result--none"></div>
   </section>
   <section class="c-zerar">
@@ -74,11 +80,17 @@
   <footer>
     <p>ônibus ou metrô SP: R$4,40</p>
     <p style="margin-bottom: 1rem;">ônibus + metrô SP: R$7,65</p>
-    <p><a href="https://github.com/rafaelcastrobr"><img style="height:3rem;" src="https://raw.githubusercontent.com/devicons/devicon/7a4ca8aa871d6dca81691e018d31eed89cb70a76/icons/github/github-original-wordmark.svg" alt=""></a></p>
+    <p><a href="https://github.com/rafaelcastrobr"><img style="height:3rem;"
+          src="https://raw.githubusercontent.com/devicons/devicon/7a4ca8aa871d6dca81691e018d31eed89cb70a76/icons/github/github-original-wordmark.svg"
+          alt=""></a></p>
     <p>Criado por Rafael Castro v2.7.2</p>
     <p>github: rafaelcastrobr</p>
   </footer>
 
+  <script src="../sweetAlert/sweetalert2.all.min.js"></script>
+  <!--<script src="../sweetAlert/sweetalert2.min.js"></script>-->
+
   <script src="assets/js/script.js"></script>
 </body>
+
 </html>

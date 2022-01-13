@@ -135,6 +135,43 @@ USOU BILHETE
 // botao ônibus ou metrô
 const oOM = document.querySelector('.c-usar__botao__um');
 oOM.addEventListener('click', () => {
+  if (total >= 4.39) {
+    Swal.fire({
+      title: 'Utilizou o Bilhete?',
+      text: "Sera descontado r$4.40",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sim, usei',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+            valor = 4.40;
+            total -= valor;
+            let totalText = total.toFixed(2);
+            saldoTotal.innerHTML = totalText;
+            retVal = Number(totalText) + valor;
+            document.querySelector('.c-usar__botao__tres').removeAttribute('disabled');
+            chaveRecarga = 0;
+            gravar(totalText, chaveRecarga);
+
+
+            Swal.fire({
+              title: 'Atualizado',
+              icon: 'success',
+              showConfirmButton: false,
+              timer: 1000
+
+            })
+          }
+    })
+  }else {
+    alert('Você está com saldo abaixo de 4.40 \n Faça uma recarga');
+  }
+})
+/*
+oOM.addEventListener('click', () => {
 
   if (total >= 4.39) {
     if(confirm('Utilizou o bilhete?')){
@@ -151,6 +188,8 @@ oOM.addEventListener('click', () => {
     alert('Você está com saldo abaixo de 4.40 \n Faça uma recarga');
   }
 });
+
+*/
 
 // botao ônibus + metrô
 const oOEM = document.querySelector('.c-usar__botao__dois');
