@@ -1,20 +1,18 @@
 //Locais do HTML
 
-
-const $saldoTotalExibir = document.querySelector('.c-saldo__result');
-
-
 const $infoSobreSaldo = document.querySelector('.c-historico__info');
+const $saldoTotalExibir = document.querySelector('.c-saldo__result');
+const $historicoExibir = document.querySelector('.c-historico__result--none');
 
 
+//Botoes
 
-const $voltarBotao = document.querySelector('#voltar_saldo'); // botao voltar
+const $useiOnibusOUMetro = document.querySelector('.c-usar__botao__um');
+const $useiOnibusEMetro = document.querySelector('.c-usar__botao__dois');
 
+const $voltarBotao = document.querySelector('#voltar_saldo');
 
-
-let $historicoExibir = document.querySelector('.c-historico__result--none')
 const $historicoBotao = document.querySelector('.c-historico__botao');
-
 
 const $zerarDisabled = document.querySelector('#zerar_botao');
 
@@ -25,5 +23,7 @@ export {
   $historicoExibir,
   $zerarDisabled,
   $infoSobreSaldo,
-  $voltarBotao
+  $voltarBotao,
+  $useiOnibusEMetro,
+  $useiOnibusOUMetro
 };
