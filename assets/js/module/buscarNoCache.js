@@ -16,12 +16,11 @@ export default function buscarNoCache() {
     $infoSobreSaldo.innerHTML = localStorage.info;
   } else {
     $infoSobreSaldo.innerHTML = `<p>Saldo insuficiente!</p>`;
-    
   };
 
 
 
-  if (!localStorage.valorTotal) {
+  if (!localStorage.valorAnterior) {
     $voltarBotao.setAttribute('disabled', '');
   };
 
@@ -39,7 +38,7 @@ export default function buscarNoCache() {
   if(localStorage.historicoRecarga) {
     let historicoDeRecargaSalvar = JSON.parse(localStorage.historicoRecarga);
     $historicoExibir.innerHTML += `Recargas`
-    for(pos in historicoDeRecargaSalvar) {
+    for(let pos in historicoDeRecargaSalvar) {
         $historicoExibir.innerHTML += `<p class="yes">${historicoDeRecargaSalvar[pos]}</p>`;
     }
   } else {

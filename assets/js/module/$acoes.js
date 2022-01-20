@@ -1,7 +1,7 @@
 //Locais do HTML
 
-const $infoSobreSaldo = document.querySelector('.c-historico__info');
 const $saldoTotalExibir = document.querySelector('.c-saldo__result');
+const $infoSobreSaldo = document.querySelector('.c-historico__info');
 const $historicoExibir = document.querySelector('.c-historico__result--none');
 
 
@@ -10,11 +10,24 @@ const $historicoExibir = document.querySelector('.c-historico__result--none');
 const $useiOnibusOUMetro = document.querySelector('.c-usar__botao__um');
 const $useiOnibusEMetro = document.querySelector('.c-usar__botao__dois');
 
-const $voltarBotao = document.querySelector('#voltar_saldo');
+const $voltarBotao = document.querySelector('.c-usar__botao__tres');
+
+const $recargaBotao = document.querySelector('.c-carregar__botao__r');
+const $recargaExibir = document.querySelector('#recarregar');
+
+const $okClick = document.querySelector('.c-carregar__botao__ok');
+
 
 const $historicoBotao = document.querySelector('.c-historico__botao');
 
 const $zerarDisabled = document.querySelector('#zerar_botao');
+
+
+// input 
+const $addRecarga = document.querySelector('.c-carregar__botao__valor');
+
+// audio
+const $audio = document.querySelector('audio');
 
 
 export { 
@@ -25,5 +38,10 @@ export {
   $infoSobreSaldo,
   $voltarBotao,
   $useiOnibusEMetro,
-  $useiOnibusOUMetro
+  $useiOnibusOUMetro,
+  $recargaBotao,
+  $recargaExibir,
+  $addRecarga,
+  $audio,
+  $okClick
 };

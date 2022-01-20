@@ -1,13 +1,11 @@
 import { $useiOnibusEMetro, $useiOnibusOUMetro } from "./$acoes.js";
-import { onibusOuMetro, onibusMaisMetro} from "./valores.js";
+import { onibusOuMetro, onibusMaisMetro } from "./valores.js";
 import { $saldoTotalExibir, $voltarBotao } from './$acoes.js'
 import salvarNoCache from "./salvarNoCache.js";
 
 const useiOnibusOUMetro = $useiOnibusOUMetro.addEventListener('click', () => {
 
-  let total = localStorage.valor? (Number(localStorage.valor)).toFixed(2) : 0.00;
-  console.log('total: ', total + 5);
-  console.log('onibusOuMetro: ',typeof  onibusOuMetro);
+  let total = localStorage.valor ? (parseFloat(localStorage.valor)) : 0.00;
 
   if (total >= +onibusOuMetro) {
     Swal.fire({
@@ -22,24 +20,28 @@ const useiOnibusOUMetro = $useiOnibusOUMetro.addEventListener('click', () => {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-            total -= onibusOuMetro;
-            $saldoTotalExibir.innerHTML = total;
-            $voltarBotao.removeAttribute('disabled');
-            let chaveRecarga = 0;
-            let valorVoltar = total + valor;
-            salvarNoCache(total, chaveRecarga, valorVoltar);
+        total -= +onibusOuMetro;
+        $saldoTotalExibir.innerHTML = (total).toFixed(2);
+        $voltarBotao.removeAttribute('disabled');
+        let chaveRecarga = 0;
+        let valorAnterior = total + (+onibusOuMetro);
+        salvarNoCache(
+          (total).toFixed(2),
+          chaveRecarga,
+          (valorAnterior).toFixed(2),
+        );
 
-            Swal.fire({
-              title: 'Atualizado',
-              icon: 'success',
-              width: '28rem',
-              showConfirmButton: false,
-              timer: 1000
+        Swal.fire({
+          title: 'Atualizado',
+          icon: 'success',
+          width: '28rem',
+          showConfirmButton: false,
+          timer: 1000
 
-            })
-          }
+        })
+      }
     })
-  }else {
+  } else {
     Swal.fire({
       text: `Saldo abaixo de r$${onibusOuMetro} ( Faça uma recarga )`,
       icon: 'info',
@@ -52,10 +54,10 @@ const useiOnibusOUMetro = $useiOnibusOUMetro.addEventListener('click', () => {
 })
 
 const useiOnibusEMetro = $useiOnibusEMetro.addEventListener('click', () => {
-  
-  let total = localStorage.valor? (+localStorage.valor).toFixed(2) : 0.00;
 
-  if (total >= onibusMaisMetro) {
+  let total = localStorage.valor ? (+localStorage.valor).toFixed(2) : 0.00;
+
+  if (total >= +onibusMaisMetro) {
     Swal.fire({
       title: 'Utilizou o Bilhete?',
       text: "Sera descontado r$4.40",
@@ -68,24 +70,28 @@ const useiOnibusEMetro = $useiOnibusEMetro.addEventListener('click', () => {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-            total -= onibusMaisMetro;
-            $saldoTotalExibir.innerHTML = total;
-            $voltarBotao.removeAttribute('disabled');
-            let chaveRecarga = 0;
-            let valorVoltar = total + valor;
-            salvarNoCache(total, chaveRecarga, valorVoltar);
+        total -= +onibusMaisMetro;
+        $saldoTotalExibir.innerHTML = (total).toFixed(2);
+        $voltarBotao.removeAttribute('disabled');
+        let chaveRecarga = 0;
+        let valorAnterior = total + (+onibusMaisMetro);
+        salvarNoCache(
+          (total).toFixed(2),
+          chaveRecarga,
+          (valorAnterior).toFixed(2)
+        );
 
-            Swal.fire({
-              title: 'Atualizado',
-              icon: 'success',
-              width: '28rem',
-              showConfirmButton: false,
-              timer: 1000
+        Swal.fire({
+          title: 'Atualizado',
+          icon: 'success',
+          width: '28rem',
+          showConfirmButton: false,
+          timer: 1000
 
-            })
-          }
+        })
+      }
     })
-  }else {
+  } else {
     Swal.fire({
       text: `Saldo abaixo de r$${onibusMaisMetro} ( Faça uma recarga )`,
       icon: 'info',
@@ -99,4 +105,4 @@ const useiOnibusEMetro = $useiOnibusEMetro.addEventListener('click', () => {
 })
 
 
-export { useiOnibusOUMetro, useiOnibusEMetro};
+export { useiOnibusOUMetro, useiOnibusEMetro };
