@@ -3,6 +3,7 @@
 const $saldoTotalExibir = document.querySelector('.c-saldo__result');
 const $infoSobreSaldo = document.querySelector('.c-historico__info');
 const $historicoExibir = document.querySelector('.c-historico__result--none');
+const $historicoExibirEsconder = document.querySelector('#historico');
 
 
 //Botoes
@@ -17,8 +18,11 @@ const $recargaExibir = document.querySelector('#recarregar');
 
 const $okClick = document.querySelector('.c-carregar__botao__ok');
 
-
 const $historicoBotao = document.querySelector('.c-historico__botao');
+
+
+
+
 
 const $zerarDisabled = document.querySelector('#zerar_botao');
 
@@ -43,5 +47,6 @@ export {
   $recargaExibir,
   $addRecarga,
   $audio,
-  $okClick
+  $okClick,
+  $historicoExibirEsconder
 };

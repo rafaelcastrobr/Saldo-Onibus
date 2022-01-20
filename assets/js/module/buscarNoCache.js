@@ -14,6 +14,7 @@ export default function buscarNoCache() {
 
   if (localStorage.info) {
     $infoSobreSaldo.innerHTML = localStorage.info;
+    $historicoBotao.removeAttribute('disabled')
   } else {
     $infoSobreSaldo.innerHTML = `<p>Saldo insuficiente!</p>`;
   };

@@ -6,9 +6,8 @@ import { recargaBotao, okClick } from './module/recarga.js';
 buscarNoCache();
 
 /*
-trocar lugar o historico usando valorRecarregado como parametro
+
 
 corrigir botao fechar ao carregar
-apagar ultima recarga caso true
 resto.
 */

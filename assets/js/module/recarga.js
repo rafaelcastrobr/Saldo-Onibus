@@ -1,7 +1,6 @@
 import { $recargaBotao, $recargaExibir, $addRecarga, $audio, $okClick, $saldoTotalExibir, $voltarBotao, $historicoExibir } from './$acoes.js';
 import salvarNoCache from './salvarNoCache.js';
-import geraData from './geraData.js';
-
+import { historicoRecarga } from './historicoRecarga.js'
 
 //Aparecer input
 const recargaBotao = $recargaBotao.addEventListener('click', () => {
@@ -40,7 +39,7 @@ const okClick = $okClick.addEventListener('click', () => {
     $audio.volume = 0.1;
 
     let valorRecarregado = parseFloat($addRecarga.value);
-    let valorAnterior = localStorage.valorAnterior? parseFloat(localStorage.valor): 0;
+    let valorAnterior = localStorage.valorAnterior ? parseFloat(localStorage.valor) : 0;
     let total = localStorage.valor ? parseFloat(localStorage.valor) + valorRecarregado : 0 + valorRecarregado;
     $saldoTotalExibir.innerHTML = total.toFixed(2);
 
@@ -53,28 +52,7 @@ const okClick = $okClick.addEventListener('click', () => {
 
     //historico
 
-    let historicoRecarga = `R$ ${valorRecarregado} no dia <span style="color:red;">${geraData()}</span>`;
 
-    if (localStorage.historicoRecarga) {
-      let historicoArray = JSON.parse(localStorage.historicoRecarga);
-
-      historicoArray.unshift(historicoRecarga);
-      localStorage.setItem('historicoRecarga', JSON.stringify(historicoArray));
-
-      $historicoExibir.innerHTML += `Recargas`
-      for (let pos in historicoArray) {
-        $historicoExibir.innerHTML += `<p class="yes">${historicoArray[pos]}</p>`;
-      }
-    } else {
-      let historicoArray = [];
-      historicoArray.unshift(historicoRecarga);
-      localStorage.setItem('historicoRecarga', JSON.stringify(historicoArray));
-
-      $historicoExibir.innerHTML += `Recargas`
-      for (let pos in historicoArray) {
-        $historicoExibir.innerHTML += `<p class="yes">${historicoArray[pos]}</p>`;
-      }
-    }
 
     salvarNoCache(
       (total).toFixed(2),
@@ -82,6 +60,9 @@ const okClick = $okClick.addEventListener('click', () => {
       (valorAnterior).toFixed(2),
     );
 
+    historicoRecarga(valorRecarregado);
+
+    
     document.querySelector('#zerar_botao').removeAttribute('disabled', '');
 
     //chaveRecarga

@@ -25,12 +25,14 @@ const voltarValor = $voltarBotao.addEventListener('click', () => {
       let trueFalse = parseFloat(localStorage.chaveRecarga);
 
       if (trueFalse === 1) {
-        let historicoRecarga = JSON.parse(localStorage.historicoRecarga);
-        historicoRecarga.shift();
+        let historicoArray = JSON.parse(localStorage.historicoRecarga);
+        historicoArray.shift();
+        localStorage.setItem('historicoRecarga', JSON.stringify(historicoArray));
+
         $historicoExibir.innerHTML = ``;
-        $historicoExibir.innerHTML += `Recargas`
-        for (let pos in historicoRecarga) {
-          $historicoExibir.innerHTML += `<p class="yes">${historicoRecarga[pos]}</p>`;
+        $historicoExibir.innerHTML += `Recargas`;
+        for (let pos in historicoArray) {
+          $historicoExibir.innerHTML += `<p class="yes">${historicoArray[pos]}</p>`;
         }
       }
 
