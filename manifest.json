@@ -9,7 +9,7 @@
     {
       "src": "assets/ico/android-chrome-512x512.png",
       "sizes": "512x512",
-      "type": "/assets/ico/png"
+      "type": "png"
     }
   ],
   "background_color": "#362B3D"
