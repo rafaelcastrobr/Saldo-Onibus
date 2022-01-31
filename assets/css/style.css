@@ -120,6 +120,7 @@ p {
 .c-carregar__letra {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  color: #ff8c00;
 }
 
 .c-carregar__botao__r {
@@ -136,18 +137,7 @@ p {
   background-color: #1b4b1f;
 }
 
-.c-carregar__valor--none {
-  display: none;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 1rem;
-}
-
 .c-carregar__valor {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -209,6 +199,7 @@ p {
 
 .c-usar__letra {
   font-size: 1.5rem;
+  color: #ff8c00;
 }
 
 .c-usar__botao {
@@ -329,8 +320,9 @@ p {
   height: 7rem;
 }
 
-.c-historico__result--none {
-  display: none;
+.c-historico__paragrafo {
+  color: #ff8c00;
+  margin-top: 1rem;
 }
 
 .c-historico__info {
@@ -344,7 +336,7 @@ p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 .c-zerar {

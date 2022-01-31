@@ -1,17 +1,17 @@
-import { $recargaBotao, $recargaExibir, $addRecarga, $audio, $okClick, $saldoTotalExibir, $voltarBotao, $historicoExibir } from './$acoes.js';
+import { $recargaBotao, $recargaExibir, $historicoBotao, $addRecarga, $audio, $okClick, $saldoTotalExibir, $voltarBotao, $historicoExibir, $inputRecarga } from './$acoes.js';
 import salvarNoCache from './salvarNoCache.js';
 import { historicoRecarga } from './historicoRecarga.js'
 
+
 //Aparecer input
+
 const recargaBotao = $recargaBotao.addEventListener('click', () => {
 
-  if (document.querySelector('.c-carregar__valor--none')) {
-    $recargaExibir.classList.remove('c-carregar__valor--none');
-    $recargaExibir.classList.add('c-carregar__valor');
+  if ($inputRecarga.style.display === "none") {
+    $inputRecarga.style.display = "flex"
     $addRecarga.focus();
   } else {
-    $recargaExibir.classList.remove('c-carregar__valor');
-    $recargaExibir.classList.add('c-carregar__valor--none');
+    $inputRecarga.style.display = "none";
   }
 });
 
@@ -23,12 +23,26 @@ const okClick = $okClick.addEventListener('click', () => {
 
   if ($addRecarga.value.length == 0) {
 
-    alert('Digite um valor');
+    Swal.fire({
+      text: `Digite um valor`,
+      icon: 'info',
+      width: '20rem',
+      showConfirmButton: false,
+      timer: 2500
+
+    })
     return;
 
   } else if ($addRecarga.value <= 0) {
 
-    alert('Digite um novo valor')
+    Swal.fire({
+      text: `Digite um novo valor`,
+      icon: 'info',
+      width: '20rem',
+      showConfirmButton: false,
+      timer: 2500
+
+    })
     $addRecarga.value = ``;
     $addRecarga.focus();
     return;
@@ -40,19 +54,24 @@ const okClick = $okClick.addEventListener('click', () => {
 
     let valorRecarregado = parseFloat($addRecarga.value);
     let valorAnterior = localStorage.valorAnterior ? parseFloat(localStorage.valor) : 0;
+    
     let total = localStorage.valor ? parseFloat(localStorage.valor) + valorRecarregado : 0 + valorRecarregado;
     $saldoTotalExibir.innerHTML = total.toFixed(2);
 
-    $addRecarga.classList.remove('c-carregar__valor');
-    $addRecarga.classList.add('c-carregar__valor--none');
+    if ($inputRecarga.style.display === "none") {
+      $inputRecarga.style.display = "flex"
+      $addRecarga.focus();
+    } else {
+      $inputRecarga.style.display = "none";
+    }
+    
     $voltarBotao.removeAttribute('disabled');
+    $historicoBotao.removeAttribute('disabled')
 
     $addRecarga.value = ``;
     let chaveRecarga = 1;
 
     //historico
-
-
 
     salvarNoCache(
       (total).toFixed(2),
@@ -61,13 +80,10 @@ const okClick = $okClick.addEventListener('click', () => {
     );
 
     historicoRecarga(valorRecarregado);
-
-    
+ 
     document.querySelector('#zerar_botao').removeAttribute('disabled', '');
 
     //chaveRecarga
-
-
   }
 });
 

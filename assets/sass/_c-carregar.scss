@@ -1,3 +1,5 @@
+@import 'variables';
+
 .c-carregar {
   display: flex;
   justify-content: center;
@@ -9,6 +11,7 @@
 .c-carregar__letra {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  color: $text-colour;
 }
 
 .c-carregar__botao__r {
@@ -24,14 +27,7 @@
   }
 }
 
-.c-carregar__valor--none {
-  display: none;
-  align-items: center;
-  margin-top: 1rem;
-}
-
 .c-carregar__valor {
-  display: flex;
   align-items: center;
   margin-top: 1rem;
 }

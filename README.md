@@ -9,12 +9,14 @@ https://saldobusao.netlify.app/
 
 ## 🔨 Ferramentas
 - HTML
-- CSS
-- JavaScript
+- CSS / SASS
+- Component / SweetAlert
+- Vanilla JS
 - PWA
 ---
 
 ## ❤️ Versão
+- v3.0 - Código refatorado
 - v2.8 - Liberar o 'voltar' para ser usado depois, guardando valores em cache.
 - v2.7.2 - Corrigindo o valor que aparece, arredondando para baixo.
 - v2.7.1 - Ajustando problema com o mês não percebido antes.
@@ -27,8 +29,9 @@ https://saldobusao.netlify.app/
 
 ## 🔥 Adição futura
 - *Opção de adicionar o próprio o valor de ônibus de sua cidade.*
+- *Adição de data e hora que foi usado o bilhete para melhor controle*
 
 ---
 ## 🥰 Preview
-
+v2.8
 ![img](assets/img/immggif.gif)

@@ -13,7 +13,7 @@ export default function infoSaldo() {
 
   } else {
     localStorage.setItem('info', `<p>Ônibus OU Metrô <span style="color:red"> ${divisaoTradicional}</span></p>
-      <p>Ônibus ++ Metrô <span style="color:red"> ${divisaoIntegracao}</span></p>`);
+      <p>Ônibus + Metrô <span style="color:red"> ${divisaoIntegracao}</span></p>`);
     $infoSobreSaldo.innerHTML = localStorage.info;
   }
 

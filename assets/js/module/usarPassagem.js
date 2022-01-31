@@ -70,6 +70,7 @@ const useiOnibusEMetro = $useiOnibusEMetro.addEventListener('click', () => {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
+
         total -= +onibusMaisMetro;
         $saldoTotalExibir.innerHTML = (total).toFixed(2);
         $voltarBotao.removeAttribute('disabled');
@@ -79,6 +80,7 @@ const useiOnibusEMetro = $useiOnibusEMetro.addEventListener('click', () => {
           (total).toFixed(2),
           chaveRecarga,
           (valorAnterior).toFixed(2)
+          
         );
 
         Swal.fire({

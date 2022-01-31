@@ -21,9 +21,11 @@ export default function buscarNoCache() {
 
 
 
-  if (!localStorage.valorAnterior) {
+  if (localStorage.valorAnterior) {
+    $voltarBotao.removeAttribute('disabled')
+  } else {
     $voltarBotao.setAttribute('disabled', '');
-  };
+  }
 
 
 

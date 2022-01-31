@@ -1,3 +1,5 @@
+@import 'variables';
+
 .c-usar {
   display: flex;
   flex-direction: column;
@@ -8,6 +10,8 @@
 
 .c-usar__letra {
   font-size: 1.5rem;
+  color: $text-colour;
+  //color: red;
 }
 
 .c-usar__botao {

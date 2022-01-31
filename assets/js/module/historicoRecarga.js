@@ -33,15 +33,19 @@ function historicoRecarga(valorRecarregado) {
 const historicoBotao = $historicoBotao.addEventListener('click', () => {
 
   if (document.querySelector('.yes')) {
-    if (document.querySelector('.c-historico__result--none')) {
-      $historicoExibirEsconder.classList.remove('c-historico__result--none');
-      $historicoExibirEsconder.classList.add('c-historico__result');
+    if ($historicoExibir.style.display === 'none') {
+      $historicoExibir.style.display = 'flex';
     } else {
-      $historicoExibirEsconder.classList.remove('c-historico__result')
-      $historicoExibirEsconder.classList.add('c-historico__result--none');
+      $historicoExibir.style.display = 'none';
     }
   } else {
-    alert('Você não possui recargas para exibir!')
+    Swal.fire({
+      text: `Você não possui recargas para exibir`,
+      icon: 'info',
+      width: '20rem',
+      showConfirmButton: false,
+      timer: 2500
+    })
   }
 });
 

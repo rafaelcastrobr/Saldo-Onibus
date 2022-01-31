@@ -1,3 +1,5 @@
+@import 'variables';
+
 .c-historico {
   display: flex;
   flex-direction: column;
@@ -34,15 +36,18 @@
   height: 7rem;
 }
 
-.c-historico__result--none {
-  display: none;
+
+.c-historico__paragrafo {
+  color: $text-colour;
+  margin-top: 1rem;
+
 }
 
 .c-historico__info {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 
