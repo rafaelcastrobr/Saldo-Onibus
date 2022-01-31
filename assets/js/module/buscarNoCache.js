@@ -5,7 +5,7 @@ export default function buscarNoCache() {
   const resetValor = 0.00;
 
   if (localStorage.valor) {
-    $saldoTotalExibir.innerHTML = (+localStorage.valor).toFixed(2);
+    $saldoTotalExibir.innerHTML = (localStorage.valor).toFixed(2);
   } else {
     $saldoTotalExibir.innerHTML = resetValor.toFixed(2);
     $zerarDisabled.setAttribute('disabled', '');
