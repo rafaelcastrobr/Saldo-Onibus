@@ -89,7 +89,7 @@ const useiOnibusEMetro = $useiOnibusEMetro.addEventListener('click', () => {
           icon: 'success',
           width: '28rem',
           showConfirmButton: false,
-          timer: 500
+          timer: 1000
 
         })
       }
