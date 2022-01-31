@@ -1,6 +1,6 @@
 import { $recargaBotao, $recargaExibir, $historicoBotao, $addRecarga, $audio, $okClick, $saldoTotalExibir, $voltarBotao, $historicoExibir, $inputRecarga } from './$acoes.js';
-import salvarNoCache from './salvarNoCache.js';
-import { historicoRecarga } from './historicoRecarga.js'
+import { historicoRecarga } from './historicoRecarga.js';
+import infoSaldo from './infoSaldo.js';
 
 
 //Aparecer input
@@ -54,7 +54,7 @@ const okClick = $okClick.addEventListener('click', () => {
 
     let valorRecarregado = parseFloat($addRecarga.value);
     let valorAnterior = localStorage.valorAnterior ? parseFloat(localStorage.valor) : 0;
-    
+
     let total = localStorage.valor ? parseFloat(localStorage.valor) + valorRecarregado : 0 + valorRecarregado;
     $saldoTotalExibir.innerHTML = total.toFixed(2);
 
@@ -64,7 +64,7 @@ const okClick = $okClick.addEventListener('click', () => {
     } else {
       $inputRecarga.style.display = "none";
     }
-    
+
     $voltarBotao.removeAttribute('disabled');
     $historicoBotao.removeAttribute('disabled')
 
@@ -73,14 +73,13 @@ const okClick = $okClick.addEventListener('click', () => {
 
     //historico
 
-    salvarNoCache(
-      (total).toFixed(2),
-      chaveRecarga,
-      (valorAnterior).toFixed(2),
-    );
+    localStorage.setItem('valor', (total).toFixed(2));
+    localStorage.setItem('chaveRecarga', chaveRecarga);
+    localStorage.setItem('valorAnterior', (valorAnterior).toFixed(2));
+    infoSaldo();
 
     historicoRecarga(valorRecarregado);
- 
+
     document.querySelector('#zerar_botao').removeAttribute('disabled', '');
 
     //chaveRecarga

@@ -1,6 +1,5 @@
 import { $voltarBotao, $saldoTotalExibir, $historicoExibir } from "./$acoes.js";
-import salvarNoCache from './salvarNoCache.js';
-
+import infoSaldo from "./infoSaldo.js";
 
 const voltarValor = $voltarBotao.addEventListener('click', () => {
 
@@ -37,12 +36,10 @@ const voltarValor = $voltarBotao.addEventListener('click', () => {
       }
 
       let chaveRecarga = 0;
-      salvarNoCache(
-        (valorAnterior).toFixed(2),
-        chaveRecarga,
-        (valorAnterior).toFixed(2)
-        )
-
+      localStorage.setItem('valor', (valorAnterior).toFixed(2));
+      localStorage.setItem('chaveRecarga', chaveRecarga);
+      localStorage.setItem('valorAnterior', (valorAnterior).toFixed(2));
+      infoSaldo();
 
       Swal.fire({
         title: 'Atualizado',

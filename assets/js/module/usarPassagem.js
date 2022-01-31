@@ -1,7 +1,7 @@
 import { $useiOnibusEMetro, $useiOnibusOUMetro } from "./$acoes.js";
 import { onibusOuMetro, onibusMaisMetro } from "./valores.js";
 import { $saldoTotalExibir, $voltarBotao } from './$acoes.js'
-import salvarNoCache from "./salvarNoCache.js";
+import infoSaldo from './infoSaldo.js';
 
 const useiOnibusOUMetro = $useiOnibusOUMetro.addEventListener('click', () => {
 
@@ -25,11 +25,12 @@ const useiOnibusOUMetro = $useiOnibusOUMetro.addEventListener('click', () => {
         $voltarBotao.removeAttribute('disabled');
         let chaveRecarga = 0;
         let valorAnterior = total + (+onibusOuMetro);
-        salvarNoCache(
-          (total).toFixed(2),
-          chaveRecarga,
-          (valorAnterior).toFixed(2),
-        );
+
+        localStorage.setItem('valor', (total).toFixed(2));
+        localStorage.setItem('chaveRecarga', chaveRecarga);
+        localStorage.setItem('valorAnterior', (valorAnterior).toFixed(2));
+        infoSaldo();
+
 
         Swal.fire({
           title: 'Atualizado',
@@ -76,19 +77,19 @@ const useiOnibusEMetro = $useiOnibusEMetro.addEventListener('click', () => {
         $voltarBotao.removeAttribute('disabled');
         let chaveRecarga = 0;
         let valorAnterior = total + (+onibusMaisMetro);
-        salvarNoCache(
-          (total).toFixed(2),
-          chaveRecarga,
-          (valorAnterior).toFixed(2)
-          
-        );
+
+        localStorage.setItem('valor', (total).toFixed(2));
+        localStorage.setItem('chaveRecarga', chaveRecarga);
+        localStorage.setItem('valorAnterior', (valorAnterior).toFixed(2));
+        infoSaldo();
+
 
         Swal.fire({
           title: 'Atualizado',
           icon: 'success',
           width: '28rem',
           showConfirmButton: false,
-          timer: 1000
+          timer: 500
 
         })
       }
