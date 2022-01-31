@@ -60,7 +60,7 @@ const useiOnibusEMetro = $useiOnibusEMetro.addEventListener('click', () => {
   if (total >= +onibusMaisMetro) {
     Swal.fire({
       title: 'Utilizou o Bilhete?',
-      text: "Sera descontado r$4.40",
+      text: "Sera descontado r$7.65",
       icon: 'warning',
       width: '28rem',
       showCancelButton: true,
