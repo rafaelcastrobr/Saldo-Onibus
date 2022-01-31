@@ -13,7 +13,8 @@ const zerarBotao = $zerarDisabled.addEventListener('click', () => {
     cancelButtonText: 'Cancelar'
   }).then((result) => {
     if (result.isConfirmed) {
-      localStorage.clear();
+
+      localStorage ? localStorage.clear() : console.log('não existo');
 
       $saldoTotalExibir.innerHTML = (0.00).toFixed(2);
       $infoSobreSaldo.innerHTML = '<p>Saldo insuficiente!</p>';
