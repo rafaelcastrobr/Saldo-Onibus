@@ -31,7 +31,7 @@ const voltarValor = $voltarBotao.addEventListener('click', () => {
 
 
         if (historicoArray.length === 0) {
-          localStorage.removeItem(historicoUso);
+          localStorage.removeItem('historicoUso');
           $historicoExibirUso.innerHTML = '';
           if ($historicoExibirUso.style.display === 'flex') {
             $historicoExibirUso.style.display = 'none';
@@ -53,15 +53,15 @@ const voltarValor = $voltarBotao.addEventListener('click', () => {
 
         if (historicoArray.length === 0) {
           localStorage.removeItem('historicoRecarga');
-          $historicoBotao.setAttribute('disabled', '');
           $historicoExibir.innerHTML = ``;
           if ($historicoExibir.style.display === 'flex') {
             $historicoExibir.style.display = 'none';
           } 
+          $historicoBotao.setAttribute('disabled', '');
         } else {
           $historicoExibir.innerHTML = ``;
           for (let pos in historicoArray) {
-            $historicoExibir.innerHTML += `<p class="yes">${historicoArray[pos]}</p>`;
+            $historicoExibir.innerHTML += `<p>${historicoArray[pos]}</p>`;
           }
         }
 
