@@ -11,12 +11,14 @@ https://saldobusao.netlify.app/
 - HTML
 - CSS / SASS
 - Component / SweetAlert
-- Vanilla JS
+- Vanilla JS 
+- LocalStorage
 - PWA
 ---
 
 ## ❤️ Versão
-- v3.0 - Código refatorado
+- v3.1 - Adição do histórico de uso.
+- v3.0 - Código refatorado.
 - v2.8 - Liberar o 'voltar' para ser usado depois, guardando valores em cache.
 - v2.7.2 - Corrigindo o valor que aparece, arredondando para baixo.
 - v2.7.1 - Ajustando problema com o mês não percebido antes.

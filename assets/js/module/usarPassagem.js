@@ -1,6 +1,7 @@
-import { $useiOnibusEMetro, $useiOnibusOUMetro } from "./$acoes.js";
+import { $historicoBotaoUso, $useiOnibusEMetro, $useiOnibusOUMetro } from "./$acoes.js";
 import { onibusOuMetro, onibusMaisMetro } from "./valores.js";
-import { $saldoTotalExibir, $voltarBotao } from './$acoes.js'
+import { $saldoTotalExibir, $voltarBotao } from './$acoes.js';
+import { historicoRecargaUso } from "./historicoUso.js";
 import infoSaldo from './infoSaldo.js';
 
 const useiOnibusOUMetro = $useiOnibusOUMetro.addEventListener('click', () => {
@@ -23,13 +24,17 @@ const useiOnibusOUMetro = $useiOnibusOUMetro.addEventListener('click', () => {
         total -= +onibusOuMetro;
         $saldoTotalExibir.innerHTML = (total).toFixed(2);
         $voltarBotao.removeAttribute('disabled');
+        $historicoBotaoUso.removeAttribute('disabled');
         let chaveRecarga = 0;
+        let chaveUso = 1;
         let valorAnterior = total + (+onibusOuMetro);
 
         localStorage.setItem('valor', (total).toFixed(2));
         localStorage.setItem('chaveRecarga', chaveRecarga);
+        localStorage.setItem('chaveUso', chaveUso);
         localStorage.setItem('valorAnterior', (valorAnterior).toFixed(2));
         infoSaldo();
+        historicoRecargaUso(+onibusOuMetro);
 
 
         Swal.fire({
@@ -75,13 +80,17 @@ const useiOnibusEMetro = $useiOnibusEMetro.addEventListener('click', () => {
         total -= +onibusMaisMetro;
         $saldoTotalExibir.innerHTML = (total).toFixed(2);
         $voltarBotao.removeAttribute('disabled');
+        $historicoBotaoUso.removeAttribute('disabled');
         let chaveRecarga = 0;
+        let chaveUso = 1;
         let valorAnterior = total + (+onibusMaisMetro);
 
         localStorage.setItem('valor', (total).toFixed(2));
         localStorage.setItem('chaveRecarga', chaveRecarga);
         localStorage.setItem('valorAnterior', (valorAnterior).toFixed(2));
+        localStorage.setItem('chaveUso', chaveUso);
         infoSaldo();
+        historicoRecargaUso(+onibusMaisMetro);
 
 
         Swal.fire({

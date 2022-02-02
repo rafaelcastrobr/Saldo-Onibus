@@ -307,7 +307,7 @@ p {
           box-shadow: none;
 }
 
-.c-historico__result {
+.c-historico__result, .c-historico__resultUso {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -1,5 +1,5 @@
-import geraData from './geraData.js';
-import { $historicoBotao, $historicoExibir, $historicoExibirEsconder } from './$acoes.js';
+import {geraData} from './geraData.js';
+import { $historicoBotao, $historicoExibir, $historicoExibirUso } from './$acoes.js';
 
 
 function historicoRecarga(valorRecarregado) {
@@ -12,8 +12,7 @@ function historicoRecarga(valorRecarregado) {
     historicoArray.unshift(historicoRecarga);
     localStorage.setItem('historicoRecarga', JSON.stringify(historicoArray));
     
-    $historicoExibir.innerHTML = ``
-    $historicoExibir.innerHTML += `Recargas`
+    $historicoExibir.innerHTML = '';
     for (let pos in historicoArray) {
       $historicoExibir.innerHTML += `<p>${historicoArray[pos]}</p>`;
     }
@@ -22,7 +21,6 @@ function historicoRecarga(valorRecarregado) {
     historicoArray.unshift(historicoRecarga);
     localStorage.setItem('historicoRecarga', JSON.stringify(historicoArray));
 
-    $historicoExibir.innerHTML += `Recargas`;
     for (let pos in historicoArray) {
       $historicoExibir.innerHTML += `<p>${historicoArray[pos]}</p>`;
     }
@@ -46,6 +44,10 @@ const historicoBotao = $historicoBotao.addEventListener('click', () => {
       showConfirmButton: false,
       timer: 2500
     })
+  }
+
+  if ($historicoExibirUso.style.display === 'flex') {
+    $historicoExibirUso.style.display = 'none';
   }
 });
 

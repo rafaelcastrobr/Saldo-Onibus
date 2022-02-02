@@ -4,6 +4,7 @@ const $saldoTotalExibir = document.querySelector('.c-saldo__result');
 const $infoSobreSaldo = document.querySelector('.c-historico__info');
 const $inputRecarga = document.querySelector('.c-carregar__valor');
 const $historicoExibir = document.querySelector('.c-historico__result');
+const $historicoExibirUso = document.querySelector('.c-historico__resultUso');
 const $historicoExibirEsconder = document.querySelector('#historico');
 
 
@@ -20,6 +21,7 @@ const $recargaExibir = document.querySelector('#recarregar');
 const $okClick = document.querySelector('.c-carregar__botao__ok');
 
 const $historicoBotao = document.querySelector('.c-historico__botao');
+const $historicoBotaoUso = document.querySelector('.c-historico__botaoUso')
 
 
 const $zerarDisabled = document.querySelector('#zerar_botao');
@@ -47,5 +49,7 @@ export {
   $audio,
   $okClick,
   $historicoExibirEsconder,
-  $inputRecarga
+  $inputRecarga,
+  $historicoBotaoUso,
+  $historicoExibirUso
 };

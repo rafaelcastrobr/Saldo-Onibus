@@ -1,4 +1,4 @@
-import { $voltarBotao, $saldoTotalExibir, $historicoExibir } from "./$acoes.js";
+import { $voltarBotao, $saldoTotalExibir, $historicoExibir, $historicoExibirUso } from "./$acoes.js";
 import infoSaldo from "./infoSaldo.js";
 
 const voltarValor = $voltarBotao.addEventListener('click', () => {
@@ -21,24 +21,37 @@ const voltarValor = $voltarBotao.addEventListener('click', () => {
       $voltarBotao.setAttribute('disabled', '');
 
 
-      let trueFalse = parseFloat(localStorage.chaveRecarga);
+      let trueFalseRecarga = parseFloat(localStorage.chaveRecarga);
+      let trueFalseUso = parseFloat(localStorage.chaveUso);
 
-      if (trueFalse === 1) {
+      if(trueFalseUso === 1) {
+        let historicoArray = JSON.parse(localStorage.historicoUso);
+        historicoArray.shift();
+        localStorage.setItem('historicoUso', JSON.stringify(historicoArray));
+
+        $historicoExibirUso.innerHTML = '';
+        for (let pos in historicoArray) {
+          $historicoExibirUso.innerHTML += `<p>${historicoArray[pos]}</p>`
+        }
+      }
+
+      if (trueFalseRecarga === 1) {
         let historicoArray = JSON.parse(localStorage.historicoRecarga);
         historicoArray.shift();
         localStorage.setItem('historicoRecarga', JSON.stringify(historicoArray));
 
         $historicoExibir.innerHTML = ``;
-        $historicoExibir.innerHTML += `Recargas`;
         for (let pos in historicoArray) {
           $historicoExibir.innerHTML += `<p class="yes">${historicoArray[pos]}</p>`;
         }
       }
 
       let chaveRecarga = 0;
+      let chaveUso = 0;
       localStorage.setItem('valor', (valorAnterior).toFixed(2));
       localStorage.setItem('chaveRecarga', chaveRecarga);
       localStorage.setItem('valorAnterior', (valorAnterior).toFixed(2));
+      localStorage.setItem('chaveUso', chaveUso);
       infoSaldo();
 
       Swal.fire({

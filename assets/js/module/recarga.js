@@ -1,4 +1,4 @@
-import { $recargaBotao, $recargaExibir, $historicoBotao, $addRecarga, $audio, $okClick, $saldoTotalExibir, $voltarBotao, $historicoExibir, $inputRecarga } from './$acoes.js';
+import { $recargaBotao, $historicoBotao, $addRecarga, $audio, $okClick, $saldoTotalExibir, $voltarBotao, $inputRecarga, $zerarDisabled } from './$acoes.js';
 import { historicoRecarga } from './historicoRecarga.js';
 import infoSaldo from './infoSaldo.js';
 
@@ -70,19 +70,19 @@ const okClick = $okClick.addEventListener('click', () => {
 
     $addRecarga.value = ``;
     let chaveRecarga = 1;
+    let chaveUso = 0;
 
     //historico
 
     localStorage.setItem('valor', (total).toFixed(2));
     localStorage.setItem('chaveRecarga', chaveRecarga);
     localStorage.setItem('valorAnterior', (valorAnterior).toFixed(2));
+    localStorage.setItem('chaveUso', chaveUso);
     infoSaldo();
-
     historicoRecarga(valorRecarregado);
 
-    document.querySelector('#zerar_botao').removeAttribute('disabled', '');
+    $zerarDisabled.removeAttribute('disabled', '');
 
-    //chaveRecarga
   }
 });
 
