@@ -1,4 +1,4 @@
-import { $voltarBotao, $saldoTotalExibir, $historicoExibir, $historicoExibirUso } from "./$acoes.js";
+import { $voltarBotao, $saldoTotalExibir, $historicoExibir, $historicoExibirUso, $historicoBotao, $historicoBotaoUso } from "./$acoes.js";
 import infoSaldo from "./infoSaldo.js";
 
 const voltarValor = $voltarBotao.addEventListener('click', () => {
@@ -24,15 +24,26 @@ const voltarValor = $voltarBotao.addEventListener('click', () => {
       let trueFalseRecarga = parseFloat(localStorage.chaveRecarga);
       let trueFalseUso = parseFloat(localStorage.chaveUso);
 
-      if(trueFalseUso === 1) {
+      if (trueFalseUso === 1) {
         let historicoArray = JSON.parse(localStorage.historicoUso);
         historicoArray.shift();
         localStorage.setItem('historicoUso', JSON.stringify(historicoArray));
 
-        $historicoExibirUso.innerHTML = '';
-        for (let pos in historicoArray) {
-          $historicoExibirUso.innerHTML += `<p>${historicoArray[pos]}</p>`
+
+        if (historicoArray.length === 0) {
+          localStorage.removeItem(historicoUso);
+          $historicoExibirUso.innerHTML = '';
+          if ($historicoExibirUso.style.display === 'flex') {
+            $historicoExibirUso.style.display = 'none';
+          }
+          $historicoBotaoUso.setAttribute('disabled', '');
+        } else {
+          $historicoExibirUso.innerHTML = '';
+          for (let pos in historicoArray) {
+            $historicoExibirUso.innerHTML += `<p>${historicoArray[pos]}</p>`
+          }
         }
+
       }
 
       if (trueFalseRecarga === 1) {
@@ -40,10 +51,20 @@ const voltarValor = $voltarBotao.addEventListener('click', () => {
         historicoArray.shift();
         localStorage.setItem('historicoRecarga', JSON.stringify(historicoArray));
 
-        $historicoExibir.innerHTML = ``;
-        for (let pos in historicoArray) {
-          $historicoExibir.innerHTML += `<p class="yes">${historicoArray[pos]}</p>`;
+        if (historicoArray.length === 0) {
+          localStorage.removeItem('historicoRecarga');
+          $historicoBotao.setAttribute('disabled', '');
+          $historicoExibir.innerHTML = ``;
+          if ($historicoExibir.style.display === 'flex') {
+            $historicoExibir.style.display = 'none';
+          } 
+        } else {
+          $historicoExibir.innerHTML = ``;
+          for (let pos in historicoArray) {
+            $historicoExibir.innerHTML += `<p class="yes">${historicoArray[pos]}</p>`;
+          }
         }
+
       }
 
       let chaveRecarga = 0;

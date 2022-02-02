@@ -21,7 +21,7 @@ https://saldobusao.netlify.app/
 - v3.0 - Código refatorado.
 - v2.8 - Liberar o 'voltar' para ser usado depois, guardando valores em cache.
 - v2.7.2 - Corrigindo o valor que aparece, arredondando para baixo.
-- v2.7.1 - Ajustando problema com o mês não percebido antes.
+- v2.7.1 - Ajustando problema getMonth.
 - v2.7 - Adicinado confirm ao usar bilhete.
 - v2.6 - Corrigido ordem de salvar e exibir recargas.
 - v2.5 - Melhorias na lógica do botão voltar, apagando do cache última recarga apagada.
