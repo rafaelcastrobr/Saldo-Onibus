@@ -15,16 +15,16 @@ function historicoRecarga(valorRecarregado) {
     $historicoExibir.innerHTML = ``
     $historicoExibir.innerHTML += `Recargas`
     for (let pos in historicoArray) {
-      $historicoExibir.innerHTML += `<p class="yes">${historicoArray[pos]}</p>`;
+      $historicoExibir.innerHTML += `<p>${historicoArray[pos]}</p>`;
     }
   } else {
     let historicoArray = [];
     historicoArray.unshift(historicoRecarga);
     localStorage.setItem('historicoRecarga', JSON.stringify(historicoArray));
 
-    $historicoExibir.innerHTML += `Recargas`
+    $historicoExibir.innerHTML += `Recargas`;
     for (let pos in historicoArray) {
-      $historicoExibir.innerHTML += `<p class="yes">${historicoArray[pos]}</p>`;
+      $historicoExibir.innerHTML += `<p>${historicoArray[pos]}</p>`;
     }
   }
 }
@@ -32,7 +32,7 @@ function historicoRecarga(valorRecarregado) {
 
 const historicoBotao = $historicoBotao.addEventListener('click', () => {
 
-  if (document.querySelector('.yes')) {
+  if (localStorage.historicoRecarga) {
     if ($historicoExibir.style.display === 'none') {
       $historicoExibir.style.display = 'flex';
     } else {

@@ -285,22 +285,22 @@ p {
   margin-top: 3rem;
 }
 
-.c-historico__botao {
+.c-historico__botao, .c-historico__botaoUso {
   width: 7rem;
   height: 3rem;
   background-color: #1A121F;
   border-radius: 1rem;
   border: none;
-  margin-top: 1rem;
+  margin: 0.4rem 1rem 0;
   -webkit-box-shadow: 0px 3px 3px 5px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 3px 3px 5px rgba(0, 0, 0, 0.25);
 }
 
-.c-historico__botao:active {
+.c-historico__botao:active, .c-historico__botaoUso:active {
   background-color: #281b30;
 }
 
-.c-historico__botao:disabled {
+.c-historico__botao:disabled, .c-historico__botaoUso:disabled {
   background-color: #bbb;
   color: #fff;
   -webkit-box-shadow: none;

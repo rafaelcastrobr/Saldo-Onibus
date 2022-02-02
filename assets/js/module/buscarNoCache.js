@@ -42,7 +42,7 @@ export default function buscarNoCache() {
     let historicoDeRecargaSalvar = JSON.parse(localStorage.historicoRecarga);
     $historicoExibir.innerHTML += `Recargas`
     for(let pos in historicoDeRecargaSalvar) {
-        $historicoExibir.innerHTML += `<p class="yes">${historicoDeRecargaSalvar[pos]}</p>`;
+        $historicoExibir.innerHTML += `<p>${historicoDeRecargaSalvar[pos]}</p>`;
     }
   } else {
     $historicoBotao.setAttribute('disabled', '');
