@@ -34,6 +34,5 @@ https://saldobusao.netlify.app/
 - *Adição de data e hora que foi usado o bilhete para melhor controle*
 
 ---
-## 🥰 Preview
-v2.8
+## 🥰 Preview v3.1
 ![img](assets/img/immggif.gif)
