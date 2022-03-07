@@ -31,9 +31,24 @@
 .c-historico__result, .c-historico__resultUso {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-top: 1rem;
   overflow-y: auto;
   height: 7rem;
+}
+
+.c-historico__resultUso__apagar {
+  margin: 0.5rem 0 0.5rem;
+  height: 2rem;
+  width: 5rem;
+  background-color: #5e0000;
+  color: #bbb;
+  border: none;
+  border-radius: 1rem;
+
+  &:active {
+    background-color: #790707;
+  }
 }
 
 

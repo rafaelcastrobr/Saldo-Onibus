@@ -315,9 +315,26 @@ p {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 1rem;
   overflow-y: auto;
   height: 7rem;
+}
+
+.c-historico__resultUso__apagar {
+  margin: 0.5rem 0 0.5rem;
+  height: 2rem;
+  width: 5rem;
+  background-color: #5e0000;
+  color: #bbb;
+  border: none;
+  border-radius: 1rem;
+}
+
+.c-historico__resultUso__apagar:active {
+  background-color: #790707;
 }
 
 .c-historico__paragrafo {
