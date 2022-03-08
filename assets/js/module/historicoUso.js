@@ -1,5 +1,5 @@
 import { geraDataUso } from './geraData.js';
-import { $historicoBotaoUso, $historicoExibirUso, $historicoExibir } from './$acoes.js';
+import { $historicoBotaoUso, $historicoExibirUso, $historicoExibir, $historicoBotaoUsoLimpar } from './$acoes.js';
 
 
 function historicoRecargaUso(valorUsado) {
@@ -33,9 +33,11 @@ const historicoBotaoUso = $historicoBotaoUso.addEventListener('click', () => {
 
   if (localStorage.historicoUso) {
     if ($historicoExibirUso.style.display === 'none') {
+      $historicoBotaoUsoLimpar.style.display = 'flex';
       $historicoExibirUso.style.display = 'flex';
     } else {
       $historicoExibirUso.style.display = 'none';
+      $historicoBotaoUsoLimpar.style.display = 'none'
     }
   } else {
     Swal.fire({

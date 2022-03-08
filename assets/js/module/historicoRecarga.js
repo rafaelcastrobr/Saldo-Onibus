@@ -1,5 +1,5 @@
 import {geraData} from './geraData.js';
-import { $historicoBotao, $historicoExibir, $historicoExibirUso } from './$acoes.js';
+import { $historicoBotao, $historicoExibir, $historicoExibirUso, $historicoBotaoUsoLimpar } from './$acoes.js';
 
 
 function historicoRecarga(valorRecarregado) {
@@ -48,6 +48,8 @@ const historicoBotao = $historicoBotao.addEventListener('click', () => {
 
   if ($historicoExibirUso.style.display === 'flex') {
     $historicoExibirUso.style.display = 'none';
+    $historicoBotaoUsoLimpar.style.display = 'none';
+
   }
 });
 

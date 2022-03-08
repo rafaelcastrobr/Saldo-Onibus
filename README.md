@@ -17,6 +17,7 @@ https://saldobusao.netlify.app/
 ---
 
 ## ❤️ Versão
+- v3.2 - Adiçao do limpar histórido de uso.
 - v3.1 - Adição do histórico de uso.
 - v3.0 - Código refatorado.
 - v2.8 - Liberar o 'voltar' para ser usado depois, guardando valores em cache.

@@ -1,4 +1,4 @@
-import { $zerarDisabled, $voltarBotao, $historicoBotao, $saldoTotalExibir, $infoSobreSaldo, $inputRecarga, $historicoExibir, $historicoBotaoUso, $historicoExibirUso } from './$acoes.js'
+import { $zerarDisabled, $voltarBotao, $historicoBotao, $saldoTotalExibir, $infoSobreSaldo, $inputRecarga, $historicoExibir, $historicoBotaoUso, $historicoExibirUso, $historicoBotaoUsoLimpar } from './$acoes.js'
 
 const zerarBotao = $zerarDisabled.addEventListener('click', () => {
 
@@ -33,6 +33,7 @@ const zerarBotao = $zerarDisabled.addEventListener('click', () => {
 
       if ($historicoExibirUso.style.display === 'flex') {
         $historicoExibirUso.style.display = 'none';
+        $historicoBotaoUsoLimpar.style.display = 'none';
       }
 
       $voltarBotao.setAttribute('disabled', '');

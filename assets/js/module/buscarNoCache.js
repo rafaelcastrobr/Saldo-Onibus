@@ -40,6 +40,7 @@ export default function buscarNoCache() {
   if(localStorage.historicoRecarga) {
     $historicoBotao.removeAttribute('disabled')
     let historicoDeRecargaSalvar = JSON.parse(localStorage.historicoRecarga);
+
     for(let pos in historicoDeRecargaSalvar) {
         $historicoExibir.innerHTML += `<p>${historicoDeRecargaSalvar[pos]}</p>`;
     }
@@ -51,9 +52,11 @@ export default function buscarNoCache() {
     if(localStorage.historicoUso) {
       $historicoBotaoUso.removeAttribute('disabled')
       let historicoDeUsoSalvar = JSON.parse(localStorage.historicoUso);
+
       for(let pos in historicoDeUsoSalvar) {
           $historicoExibirUso.innerHTML += `<p>${historicoDeUsoSalvar[pos]}</p>`;
       }
+
     } else {
       $historicoBotaoUso.setAttribute('disabled', '');
     }

@@ -18,5 +18,5 @@ export function geraDataUso() {
   let hora = addZero(data.getHours());
   let min = addZero(data.getMinutes());
 
- return `${dia}-${mes} | ${hora}:${min}`;
+ return `| ${dia}-${mes} | ${hora}:${min}`;
 }
