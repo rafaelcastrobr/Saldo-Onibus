@@ -52,6 +52,21 @@
   }
 }
 
+.c-historico__recarga__apagar {
+  margin: 1.5rem 0 0.5rem;
+  justify-content: center;
+  height: 2rem;
+  width: 7rem;
+  background-color: #5e0000;
+  color: #bbb;
+  border: none;
+  border-radius: 1rem;
+
+  &:active {
+    background-color: #790707;
+  }
+}
+
 
 .c-historico__paragrafo {
   color: $text-colour;

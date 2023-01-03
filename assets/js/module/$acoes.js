@@ -23,6 +23,7 @@ const $okClick = document.querySelector('.c-carregar__botao__ok');
 const $historicoBotao = document.querySelector('.c-historico__botao');
 const $historicoBotaoUso = document.querySelector('.c-historico__botaoUso')
 const $historicoBotaoUsoLimpar = document.querySelector('.c-historico__resultUso__apagar')
+const $historicoBotaoRecargaLimpar = document.querySelector('.c-historico__recarga__apagar')
 
 const $zerarDisabled = document.querySelector('#zerar_botao');
 
@@ -52,5 +53,6 @@ export {
   $inputRecarga,
   $historicoBotaoUso,
   $historicoExibirUso,
-  $historicoBotaoUsoLimpar
+  $historicoBotaoUsoLimpar,
+  $historicoBotaoRecargaLimpar,
 };
